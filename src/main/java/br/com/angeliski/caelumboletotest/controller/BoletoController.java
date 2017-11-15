@@ -31,7 +31,7 @@ public class BoletoController {
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.parseMediaType("application/pdf"));
-        String filename = getPorNumero(numeroBanco);
+        String filename = getPorNumero(numeroBanco) + ".pdf";
         headers.setContentDispositionFormData(filename, filename);
         headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
         ResponseEntity<byte[]> response = new ResponseEntity<>(gerador.geraPDF(), headers, HttpStatus.OK);
